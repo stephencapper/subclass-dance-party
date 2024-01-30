@@ -1,9 +1,7 @@
 var makeBouncyDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
 
-  this.top = top;
   this.bounceTop = this.top - 5;
-  this.left = left;
   this.currPosition = 'top';
 
 };

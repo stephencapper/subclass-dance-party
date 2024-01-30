@@ -3,16 +3,19 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  /* background-color:#444; */
+  background: url(assets/danceFloor.jpg);
+  background-size: cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .lineUpDancers, .addDancerButton{
   padding:5px 12px;
   float:right;
 }
+
 .topbar{
   height:32px;
   background-color: #555;
@@ -21,7 +24,25 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  /* border:0px solid red; */
+  width:30px;
+  height:38px;
   position:absolute;
+  display:block;
+  background: url('https://cdn-icons-png.flaticon.com/512/3058/3058897.png');
+  background-size:cover;
+  filter: invert(1);
+}
+
+
+#lineUpContainer{
+  display: flex;
+  justify-content: space-between;
+  position:relative;
+  width:100%;
+  height:45px;
+  margin-top:50%;
+  background:transparent;
+  border:50px;
+  border:0px solid white;
 }

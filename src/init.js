@@ -27,7 +27,28 @@ $(document).ready(function() {
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.lineUpDancers').on('click', function(event) {
+    $('.dancer').detach();
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineUp();
+    }
+  });
+
+  $(document).on('click', '.dancer' , function() {
+    var position = $(this).offset();
+    var top = position.top;
+    var left = position.left;
+    console.log('Top:', top, 'Left:', left);
+    for (var i = 0; i < window.dancers.length; i++) {
+      // calculate distance to dancer
+      //
+      // window.dancers[i].lineUp();
+    }
+  });
+
 });
 

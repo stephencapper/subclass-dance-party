@@ -4,6 +4,10 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.step();
   this.setPosition(top, left);
+  //------------------------------------
+  this.top = top;
+  this.left = left;
+  //------------------------------------
 };
 
 makeDancer.prototype.step = function() {
@@ -20,6 +24,14 @@ makeDancer.prototype.setPosition = function(top, left) {
   this.$node.css(styleSettings);
 };
 
+makeDancer.prototype.lineUp = function() {
+  var dancerCssSettings = {
+    position:'static'
+  };
+  this.$node.css(dancerCssSettings);
+  // console.log(this.$node);
+  $('#lineUpContainer').append(this.$node);
+};
 
 
 
