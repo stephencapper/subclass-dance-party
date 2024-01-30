@@ -14,7 +14,9 @@ describe('blinkyDancer', function() {
 
   it('should have a step function that makes its node blink', function() {
     sinon.spy(blinkyDancer.$node, 'toggle');
+    // console.log('SPY NODE TOGGLE: ', blinkyDancer.$node);
     blinkyDancer.step();
+    // console.log('CALLED: ', blinkyDancer.$node.toggle.called);
     expect(blinkyDancer.$node.toggle.called).to.be.true;
   });
 
