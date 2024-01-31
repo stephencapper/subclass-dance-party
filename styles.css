@@ -46,3 +46,15 @@ body, a:link, a:visited, a:active{
   border:50px;
   border:0px solid white;
 }
+
+
+.blinky{
+  background: url('https://cdn.iconscout.com/icon/free/png-256/free-dancing-medium-dark-skin-tone-woman-37750.png');
+  background-size:cover;
+}
+
+.spinny{
+  background: url('https://pngimg.com/uploads/break_dance/break_dance_PNG66.png');
+  background-size: cover;
+}
+

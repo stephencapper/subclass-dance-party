@@ -39,15 +39,62 @@ $(document).ready(function() {
   });
 
   $(document).on('click', '.dancer' , function() {
+    var node = $(this);
     var position = $(this).offset();
-    var top = position.top;
-    var left = position.left;
-    console.log('Top:', top, 'Left:', left);
+    var clickedTop = position.top;
+    var clickedLeft = position.left;
+    //console.log('Top:', top, 'Left:', left);
+    var closest, distToClosest, nextClosest, distToNextClosest;
     for (var i = 0; i < window.dancers.length; i++) {
       // calculate distance to dancer
-      //
+      var currTop = window.dancers[i].top;
+      var currLeft = window.dancers[i].left;
+      //check if dancer is in same position (i.e. is the dancer we clicked)
+      // if (clickedTop === currTop && clickedLeft === currLeft) {
+      //   continue;
+      // }
+      var heightDiff = clickedTop - currTop;
+      var baseDiff = clickedLeft - currLeft;
+      var currDistance = 0.5 * (heightDiff * baseDiff);
+      currDistance = Math.abs(currDistance);
+      if (!distToClosest) {
+        distToClosest = currDistance;
+        closest = window.dancers[i];
+      } else if (currDistance < distToClosest) {
+        distToNextClosest = distToClosest;
+        nextClosest = closest;
+        distToClosest = currDistance;
+        closest = window.dancers[i];
+      } else if (!distToNextClosest || currDistance < distToNextClosest) {
+        distToNextClosest = currDistance;
+        nextClosest = window.dancers[i];
+      }
       // window.dancers[i].lineUp();
     }
+    //set position of dancer clicked to be same height as and 50 pixels right of closest
+    $(this).offset({
+      top: nextClosest.top,
+      left: (nextClosest.left + 50)
+    });
+    setTimeout(function() {
+      node.offset({
+        top: clickedTop,
+        left: (clickedLeft)
+      });
+    }, 1000);
+
+  });
+
+  $(document).on('mouseenter', '.dancer' , function() {
+    var node = $(this);
+    node.width('60px');
+    node.height('76px');
+  });
+
+  $(document).on('mouseleave', '.dancer' , function() {
+    var node = $(this);
+    node.width('30px');
+    node.height('38px');
   });
 
 });

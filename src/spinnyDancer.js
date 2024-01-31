@@ -1,6 +1,7 @@
 var makeSpinnyDancer = function(top, left, timeBetweenSteps) {
   makeDancer.call(this, top, left, timeBetweenSteps);
   this.currRotation = 0;
+  this.$node.addClass('spinny');
 };
 
 makeSpinnyDancer.prototype = Object.create(makeDancer.prototype);
